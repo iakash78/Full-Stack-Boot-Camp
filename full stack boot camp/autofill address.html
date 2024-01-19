@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+    <script>
+        function copyAddress() {
+            // Get permanent address values
+            var permanentAddress = document.getElementById('permanentAddress').value;
+            var permanentCity = document.getElementById('permanentCity').value;
+            var permanentState = document.getElementById('permanentState').value;
+
+            // Copy values to local address fields if checkbox is checked
+            if (document.getElementById('sameAddressCheckbox').checked) {
+                document.getElementById('localAddress').value = permanentAddress;
+                document.getElementById('localCity').value = permanentCity;
+                document.getElementById('localState').value = permanentState;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form>
+        <h2>Permanent Address</h2>
+        Address: <input type="text" id="permanentAddress"><br>
+        City: <input type="text" id="permanentCity"><br>
+        State: <input type="text" id="permanentState"><br>
+
+        <h2>Local Address</h2>
+        <label>
+            <input type="checkbox" id="sameAddressCheckbox" onclick="copyAddress()">
+            Same as Permanent Address
+        </label><br>
+        Address: <input type="text" id="localAddress"><br>
+        City: <input type="text" id="localCity"><br>
+        State: <input type="text" id="localState"><br>
+    </form>
+
+</body>
+</html>
